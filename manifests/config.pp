@@ -13,4 +13,13 @@ class chronograf::config inherits chronograf {
     content => template('chronograf/chronograf.conf.erb'),
     notify  => Class['chronograf::service']
   }
+
+  # # Create bolt_db file
+  # file { $bolt_path:
+  #   ensure => 'present',
+  #   owner  => 'chrongraf',
+  #   group  => 'chrongraf',
+  #   mode   => '0644',
+  #   notify => Class['chronograf::service']
+  # }
 }

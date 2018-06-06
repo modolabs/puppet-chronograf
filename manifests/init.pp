@@ -6,16 +6,7 @@
 # Parameters
 # ----------
 #
-# Document parameters here.
-#
-# * `sample parameter`
-# Explanation of what this parameter affects and what it defaults to.
-# e.g. "Specify one or more upstream ntp servers as an array."
-#
-# Variables
-# ----------
-#
-# The puppet parameter names mirror the names in the chronograf configuration file.
+# Most of the puppet parameter names mirror the names in the chronograf configuration file.
 #
 # See https://docs.influxdata.com/chronograf/v1.4/administration/config-options/ or or chronograf.conf.erb
 # in the templates folder for configuration details
@@ -37,17 +28,19 @@ class chronograf (
   Enum['debug', 'info', 'error'] $log_level = 'info',
   String $status_feed_url                   = 'https://www.influxdata.com/feed/json',
   String $canned_path                       = '/usr/share/chronograf/canned',
-  String $bolt_path                         = './chronograf-v1.db',
-  String $tls_certificate_path              = undef,
-  String $tls_private_key_path              = undef,
-  Hash $influx_config                       = {},
-  Hash $kapacitor_config                    = {},
-  String $public_url                        = 'http://localhost:8888',
-  String $token_secret                      = undef,
-  Integer $auth_duration                    = 720,
+  String $resource_path                     = '/usr/share/chronograf/resources',
+  Optional[Hash] $influxdb_instances        = {},
+  Optional[Hash] $kapacitor_instances       = {},
+  Optional[Hash] $organizations             = {},
+  Optional[String] $bolt_path               = undef, #'/var/lib/chronogaf/chronogaf-v1.db', # './chronograf-v1.db',
+  Optional[String] $tls_certificate_path    = undef,
+  Optional[String] $tls_private_key_path    = undef,
+  Optional[String] $public_url              = 'http://localhost:8888',
+  Optional[String] $token_secret            = undef,
+  Optional[Integer] $auth_duration          = 720,
   Optional[String] $google_client_id        = undef,
   Optional[String] $google_client_secret    = undef,
-  Optional[Array] $google_domains           = undef,
+  Optional[String] $google_domains          = undef,
   Optional[String] $github_client_id        = undef,
   Optional[String] $github_client_secret    = undef,
   Optional[Array] $github_organizations     = undef,
@@ -67,5 +60,16 @@ class chronograf (
   include chronograf::repo
   include chronograf::install
   include chronograf::config
+
+  if $tls_certificate_path and $tls_private_key_path {
+    include chronograf::certs
+  }
+
   include chronograf::service
+
+  create_resources('chronograf::resource::influxdb', $influxdb_instances)
+  create_resources('chronograf::resource::kapacitor', $kapacitor_instances)
+  if $token_secret {
+    create_resources('chronograf::resource::organization', $organizations)
+  }
 }

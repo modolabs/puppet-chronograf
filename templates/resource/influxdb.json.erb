@@ -1,0 +1,12 @@
+{
+  "id": "<%= @instance_id %>",
+  "name": "<%= @instance_name %>",
+  <% if @username %>"username": "<%= @username %>",<% end %>
+  <% if @password %>"password": "<%= @password %>",<% end %>
+  "url": "<%= @url %>",
+  "type": "<%= @influx_type %>",
+  "insecureSkipVerify": <%= @insecure_skip_verify %>,
+  "default": <%= @org_default %>,
+  <% if @org_id %>"organization": "<%= @org_id %>",<% end %>
+  "telegraf": "<%= @telegraf_db %>"
+}

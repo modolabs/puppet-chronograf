@@ -3,16 +3,6 @@
 
 _This document and repo are currently a work-in-progress._
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
-
-
-
-
-
-
 #### Table of Contents
 
 1. [Description](#description)
@@ -55,9 +45,9 @@ include chronograf
 
 ## Usage
 
-The class parameters line-up almost perfectly with the options shown in the [Chronograf documentation](https://docs.influxdata.com/chronograf/v1.4/administration/config-options/)
+The class parameters line-up almost perfectly with the options shown in the [Chronograf documentation](https://docs.influxdata.com/chronograf/v1.5/administration/config-options/)
 
-To set up with authentication, see the [Chronograf document regarding security](https://docs.influxdata.com/chronograf/v1.4/administration/managing-security/), and apply the appropriate parameters when setting up the class.
+To set up with authentication, see the [Chronograf document regarding security](https://docs.influxdata.com/chronograf/v1.5/administration/managing-security/), and apply the appropriate parameters when setting up the class.
 
 **The only class you need to include is the main class!** Everything else is just a private class used by init.pp
 

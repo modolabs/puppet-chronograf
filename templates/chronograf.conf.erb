@@ -1,78 +1,32 @@
-# The IP that the chronograf service listens on. Default: 0.0.0.0
 HOST=<%= @host %>
-# The port that the chronograf service listens on for insecure connections. Default: 8888
 PORT=<%= @port %>
-# Disables reporting of usage statistics.
 REPORTING_DISABLED=<%= @reporting_disabled %>
-# Set the logging level. Default: info
 LOG_LEVEL=<%= @log_level %>
-# URL of JSON feed to display as a news feed on the client Status page.
 STATUS_FEED_URL=<%= @status_feed_url %>
-# The path to the directory of canned dashboards files. Default: /usr/share/chronograf/canned
 CANNED_PATH=<%= @canned_path %>
-# The file path to the BoltDB file. Default: ./chronograf-v1.db
-BOLT_PATH=<%= @bolt_path %>
-
-######### TLS Options
-# The file path to PEM-encoded public key certificate.
-TLS_CERTIFICATE=<%= @tls_certificate_path %>
-# The file path to private key associated with given certificate.
-TLS_PRIVATE_KEY=<%= @tls_private_key_path %>
-
-######### InfluxDB Connection Options
-<% @influx_config.each do |config| %>
-# The location of your InfluxDB instance, including http://, IP address, and port.
-INFLUXDB_URL=<%= config.influxdb_url %>
-# The username for your InfluxDB instance.
-INFLUXDB_USERNAME=<%= config.influxdb_username %>
-# The password for your InfluxDB instance.
-INFLUXDB_PASSWORD=<%= config.influxdb_password %>
-<% end %>
-
-######### Kapacitor Connection Options
-<% @kapacitor_config.each do |config| %>
-# The location of your Kapacitor instance, including http://, IP address, and port.
-KAPACITOR_URL=<%= config.kapacitor_url %>
-# The username for your Kapacitor instance.
-KAPACITOR_USERNAME=<%= config.kapacitor_username %>
-# The password for your Kapacitor instance.
-KAPACITOR_PASSWORD=<%= config.kapacitor_password %>
-<% end %>
-
-# General auth
-# The public URL required to access Chronograf using a web browser. For example, if you access Chronograf using the default URL, the public URL value would be http://localhost:8888. Required for Google OAuth 2.0 authentication. Used for Auth0 and some generic OAuth 2.0 authentication providers.
-PUBLIC_URL=<%= @public_url %>
-# The secret for signing tokens.
-TOKEN_SECRET=<%= @token_secret %>
-# The total duration (in hours) of cookie life for authentication.
-AUTH_DURATION=<%= @auth_duration %>
+RESOURCE_PATH=<%= @resource_path %>
+<% if @bolt_path %>BOLT_PATH=<%= @bolt_path %><% end %>
+<% if @tls_certificate_path %>TLS_CERTIFICATE=<%= @tls_certificate_path %><% end %>
+<% if @tls_private_key_path %>TLS_PRIVATE_KEY=<%= @tls_private_key_path %><% end %>
+<% if @public_url %>PUBLIC_URL=<%= @public_url %><% end %>
+<% if @token_secret %>TOKEN_SECRET=<%= @token_secret %><% end %>
+<% if @auth_duration %>AUTH_DURATION=<%= @auth_duration %><% end %>
 
 <% if @google_client_id and @google_client_secret %>
-######### Google Auth
-# The Google Client ID value required for OAuth 2.0 support.
 GOOGLE_CLIENT_ID=<%= @google_client_id %>
-# The Google Client Secret value required for OAuth 2.0 support.
 GOOGLE_CLIENT_SECRET=<%= @google_client_secret %>
-# [Optional] Restricts authorization to users from specified Google email domains.
-GOOGLE_DOMAINS=<%= @google_domains %>
+<% if @google_domains %>GOOGLE_DOMAINS=<%= @google_domains %><% end %>
 <% end %>
 
 <% if @github_client_id and @github_client_secret %>
-######### Github Auth
-# The Github Client ID value required for OAuth 2.0 support.
 GH_CLIENT_ID=<%= @github_client_id %>
-# The Github Client Secret value required for OAuth 2.0 support.
 GH_CLIENT_SECRET=<%= @github_client_secret %>
 [Optional] Specify a GitHub organization membership required for a user.
-GH_ORGS=<%= @github_organization %>
+<% if @github_organization %>GH_ORGS=<%= @github_organization %><% end %>
 <% end %>
 
 <% if @heroku_client_id and @heroku_client_secret %>
-######### Heroku Auth
-# The Heroku Client ID value required for OAuth 2.0 support.
 HEROKU_CLIENT_ID=<%= @heroku_client_id %>
-# The Heroku Client Secret value required for OAuth 2.0 support.
 HEROKU_CLIENT_SECRET=<%= @heroku_client_secret %>
-# The Heroku organization memberships required for access to Chronograf. Lists are comma-separated.
-HEROKU_ORGS=<%= @heroku_organizations %>
+<% if @heroku_organizations %>HEROKU_ORGS=<%= @heroku_organizations %><% end %>
 <% end %>
