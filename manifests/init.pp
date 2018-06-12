@@ -49,12 +49,13 @@ class chronograf (
   Optional[Array] $heroku_organizations     = undef,
 
   # Service Options
-  $version                                  = 'latest',
-  $service_name                             = $chronograf::params::service_name,
-  $package_name                             = $chronograf::params::package_name,
-  $service_ensure                           = $chronograf::params::service_ensure,
-  $service_enable                           = $chronograf::params::service_enable,
-  $service_restart                          = $chronograf::params::service_restart,
+  String $version                           = 'latest',
+  Boolean $service_manage                   = $chronograf::params::service_manage,
+  String $service_name                      = $chronograf::params::service_name,
+  String $package_name                      = $chronograf::params::package_name,
+  String $service_ensure                    = $chronograf::params::service_ensure,
+  Boolean $service_enable                   = $chronograf::params::service_enable,
+  String $service_restart                   = $chronograf::params::service_restart,
 
 ) inherits chronograf::params {
   include chronograf::repo

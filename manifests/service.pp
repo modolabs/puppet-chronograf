@@ -15,26 +15,24 @@ class chronograf::service inherits chronograf {
   if ! defined(Class['chronograf::params']) {
     fail('You must include the chronograf::params class before using any chronograf defined resources')
   }
-  validate_bool($service_enable)
-  validate_bool($service_manage)
 
-  case $service_ensure {
+  case $chronograf::service_ensure {
     true, false, 'running', 'stopped': {
-      $_service_ensure = $service_ensure
+      $_service_ensure = $chronograf::service_ensure
     }
     default: {
       $_service_ensure = undef
     }
   }
-  if $service_manage {
+  if $chronograf::service_manage {
     service { 'chronograf':
       ensure     => $_service_ensure,
-      name       => $service_name,
-      enable     => $service_enable,
-      restart    => $service_restart,
+      name       => $chronograf::service_name,
+      enable     => $chronograf::service_enable,
+      restart    => $chronograf::service_restart,
       hasrestart => true,
       hasstatus  => true,
-      require    => Package[$package_name]
+      require    => Package[$chronograf::package_name]
     }
   }
 }

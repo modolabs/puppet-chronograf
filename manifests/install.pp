@@ -7,10 +7,10 @@
 class chronograf::install inherits chronograf {
 
   $packages = [
-    $package_name,
+    $chronograf::package_name,
   ]
 
   package { $packages:
-    ensure => $version,
+    ensure => $chronograf::version,
   }
 }
