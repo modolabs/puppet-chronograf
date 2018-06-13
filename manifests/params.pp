@@ -1,9 +1,8 @@
-# A description of what this class does
-#
-# @summary Configuration for the chronograf module. Do not use this class directly.
+# @summaryThe OS-related parameters for chronograf
 #
 # @example
 #   include chronograf::params
+# PRIVATE CLASS: do not use directly
 class chronograf::params {
   case $::osfamily {
     'redhat', 'linux': {

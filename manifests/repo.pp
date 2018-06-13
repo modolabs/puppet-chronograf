@@ -5,7 +5,7 @@
 # PRIVATE CLASS: do not use directly
 class chronograf::repo {
 
-    yumrepo { 'influxdb':
+    yumrepo { 'influxdata':
         descr    => 'influxdb',
         baseurl  => 'https://repos.influxdata.com/rhel/$releasever/$basearch/stable',
         enabled  => 1,

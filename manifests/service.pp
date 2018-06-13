@@ -9,7 +9,7 @@
 # === Copyright
 #
 # Copyright 2018 Modo Labs, Inc.
-#
+# PRIVATE CLASS: do not use directly
 class chronograf::service inherits chronograf {
   # The base class must be included first because parameter defaults depend on it
   if ! defined(Class['chronograf::params']) {

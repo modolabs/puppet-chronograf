@@ -1,9 +1,8 @@
-# A description of what this class does
-#
-# @summary A short summary of the purpose of this class
+# @summary Set up TLS Certificate for Chronograf
 #
 # @example
 #   include chronograf::certs
+# PRIVATE CLASS: do not use directly
 class chronograf::certs (
   String $cert      = undef,
   String $cert_key  = undef,

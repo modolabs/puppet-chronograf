@@ -1,9 +1,10 @@
-# A description of what this class does
+# Installs the chronograf package and any related dependencies
 #
 # @summary A short summary of the purpose of this class
 #
 # @example
 #   include chronograf::install
+# PRIVATE CLASS: do not use directly
 class chronograf::install inherits chronograf {
 
   $packages = [

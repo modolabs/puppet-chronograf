@@ -2,6 +2,7 @@
 #
 # @example
 #   include chronograf::config
+# PRIVATE CLASS: do not use directly
 class chronograf::config inherits chronograf {
 
   # Main config file
@@ -11,7 +12,7 @@ class chronograf::config inherits chronograf {
     group   => 'root',
     mode    => '0644',
     content => template('chronograf/chronograf.conf.erb'),
-    notify  => Class['chronograf::service']
+    notify  => Class['chronograf::service'],
   }
 
   # # Create bolt_db file

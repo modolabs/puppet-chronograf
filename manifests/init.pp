@@ -27,23 +27,35 @@ class chronograf (
   Boolean $reporting_disabled               = false,
   Enum['debug', 'info', 'error'] $log_level = 'info',
   String $status_feed_url                   = 'https://www.influxdata.com/feed/json',
+
+  # Resources
+  Optional[String] $bolt_path               = undef, #'/var/lib/chronogaf/chronogaf-v1.db', # './chronograf-v1.db',
   String $canned_path                       = '/usr/share/chronograf/canned',
   String $resource_path                     = '/usr/share/chronograf/resources',
   Optional[Hash] $influxdb_instances        = {},
   Optional[Hash] $kapacitor_instances       = {},
   Optional[Hash] $organizations             = {},
-  Optional[String] $bolt_path               = undef, #'/var/lib/chronogaf/chronogaf-v1.db', # './chronograf-v1.db',
+
+  # SSL
   Optional[String] $tls_certificate_path    = undef,
   Optional[String] $tls_private_key_path    = undef,
+
+  # General Authentication
   Optional[String] $public_url              = 'http://localhost:8888',
   Optional[String] $token_secret            = undef,
   Optional[Integer] $auth_duration          = 720,
+
+  # Google Auth
   Optional[String] $google_client_id        = undef,
   Optional[String] $google_client_secret    = undef,
   Optional[String] $google_domains          = undef,
+
+  # Github Auth
   Optional[String] $github_client_id        = undef,
   Optional[String] $github_client_secret    = undef,
   Optional[Array] $github_organizations     = undef,
+
+  # Heroku Auth
   Optional[String] $heroku_client_id        = undef,
   Optional[String] $heroku_client_secret    = undef,
   Optional[Array] $heroku_organizations     = undef,

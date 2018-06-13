@@ -33,14 +33,14 @@ define chronograf::resource::influxdb (
   String $dir_path              = $::chronograf::resource_path,
   Optional[String] $org_id      = undef,
   Integer $instance_id          = undef,
-  Enum['influx', 'influx-enterprise'] $influx_type = 'influx',
   Optional[String] $username    = undef,
   Optional[String] $password    = undef,
   Boolean $org_default          = true,
   String $instance_name         = undef,
   String $telegraf_db           = 'telegraf',
   String $url                   = 'http://localhost:8086',
-  Boolean $insecure_skip_verify = false
+  Boolean $insecure_skip_verify = false,
+  Enum['influx', 'influx-enterprise'] $influx_type = 'influx',
 ) {
   if ! defined(Class['chronograf']) {
     fail('You must include the chronograf base class before using any defined resources')
