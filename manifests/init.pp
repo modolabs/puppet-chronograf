@@ -31,7 +31,7 @@ class chronograf (
   # Resources
   Optional[String] $bolt_path               = undef, #'/var/lib/chronogaf/chronogaf-v1.db', # './chronograf-v1.db',
   String $canned_path                       = '/usr/share/chronograf/canned',
-  String $resource_path                     = '/usr/share/chronograf/resources',
+  String $resources_path                    = '/usr/share/chronograf/resources',
   Optional[Hash] $influxdb_instances        = {},
   Optional[Hash] $kapacitor_instances       = {},
   Optional[Hash] $organizations             = {},
@@ -70,7 +70,7 @@ class chronograf (
   String $service_restart                   = $chronograf::params::service_restart,
 
 ) inherits chronograf::params {
-  include chronograf::repo
+  require chronograf::repo
   include chronograf::install
   include chronograf::config
 
