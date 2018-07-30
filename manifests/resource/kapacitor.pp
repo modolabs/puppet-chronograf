@@ -24,7 +24,7 @@
 #     org_id       => "example_org"
 #   }
 define chronograf::resource::kapacitor (
-  String $dir_path         = $::chronograf::resource_path,
+  String $dir_path         = $::chronograf::resources_path,
   Optional[String] $org_id = undef,
   Integer $instance_id     = undef,
   Integer $influx_id       = undef,

@@ -19,7 +19,7 @@
 #     default_role => "editor"
 #   }
 define chronograf::resource::organization (
-  String $dir_path = $::chronograf::resource_path,
+  String $dir_path = $::chronograf::resources_path,
   String $org_id   = undef,
   String $org_name = undef,
   Enum['admin', 'editor', 'viewer', 'member'] $default_role = 'viewer'

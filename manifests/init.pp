@@ -8,7 +8,7 @@
 #
 # Most of the puppet parameter names mirror the names in the chronograf configuration file.
 #
-# See https://docs.influxdata.com/chronograf/v1.4/administration/config-options/ or or chronograf.conf.erb
+# See https://docs.influxdata.com/chronograf/v1.4/administration/config-options/ or chronograf.conf.erb
 # in the templates folder for configuration details
 #
 # Authors

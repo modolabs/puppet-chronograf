@@ -30,12 +30,12 @@
 #     org_id       => "example_org"
 #   }
 define chronograf::resource::influxdb (
-  String $dir_path              = $::chronograf::resource_path,
+  String $dir_path              = $::chronograf::resources_path,
   Optional[String] $org_id      = undef,
   Integer $instance_id          = undef,
   Optional[String] $username    = undef,
   Optional[String] $password    = undef,
-  Boolean $org_default          = true,
+  Boolean $org_default          = false,
   String $instance_name         = undef,
   String $telegraf_db           = 'telegraf',
   String $url                   = 'http://localhost:8086',
