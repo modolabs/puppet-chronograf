@@ -1,8 +1,6 @@
 
 # chronograf
 
-_This document and repo are currently a work-in-progress._
-
 #### Table of Contents
 
 1. [Description](#description)
@@ -23,19 +21,19 @@ At the time of inital writing of this module, Chronograf was young and there wer
 
 ## Setup
 
-### What chronograf affects **OPTIONAL**
+### What chronograf affects
 
 This module will likely touch the other aspects of the TICK stack (Telegraf, InfluxDB, and Kapacitor). While not strictly necessary to hook those up using the avaliable parameters, the main functionality is pretty much gone otherwise.
 
-Note that InfluxDB and Kapacitor configurations can be setup directly through the app, rather than through this module.
+Note that InfluxDB and Kapacitor configurations can be setup directly through the app, rather than through this module. *Setting them up through the module may make them immutable in the Chronograf UI.*
 
 A couple other things to note:
 * The influxdb yum repo will be added so that packages can be grabbed from the appropriate source.
 * Only Chronograf is installed via this module
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements
 
-N/A
+If you would like authentication set up, you _must_ provide a `token_secret`, and addition to the required keys.
 
 ### Beginning with chronograf
 
@@ -45,21 +43,17 @@ include chronograf
 
 ## Usage
 
-The class parameters line-up almost perfectly with the options shown in the [Chronograf documentation](https://docs.influxdata.com/chronograf/v1.5/administration/config-options/)
+The class parameters line-up almost perfectly with the options shown in the [Chronograf documentation](https://docs.influxdata.com/chronograf/v1.6/administration/config-options/)
 
-To set up with authentication, see the [Chronograf document regarding security](https://docs.influxdata.com/chronograf/v1.5/administration/managing-security/), and apply the appropriate parameters when setting up the class.
+To set up with authentication, see the [Chronograf document regarding security](https://docs.influxdata.com/chronograf/v1.6/administration/managing-security/), and apply the appropriate parameters when setting up the class.
 
-**The only class you need to include is the main class!** Everything else is just a private class used by init.pp
+**The only class you need to include is the main class!** Everything else is just a private class used by `init.pp`
 
 ## Limitations
 
 This module was developed for usage with RHEL/CentOS. It currently is only set to be compatible with those operating systems.
 
 While the actual Chronograf configuration can support up quite a few Authentication methods, the only ones currently supported by this module are Github and Google. The rest will be added at a later point.
-
-## Development
-
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc. **Optional**
 
