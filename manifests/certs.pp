@@ -2,13 +2,12 @@
 #
 # @example
 #   include chronograf::certs
-# PRIVATE CLASS: do not use directly
 class chronograf::certs (
   String $cert      = undef,
   String $cert_key  = undef,
   String $cert_name = undef,
 ) {
-  file { "/etc/pki/tls/certs/${cert_name}":
+  file { "/etc/pki/tls/certs/${cert_name}.cert":
       ensure  => 'present',
       owner   => 'chronograf',
       group   => 'chronograf',
