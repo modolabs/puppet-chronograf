@@ -29,7 +29,7 @@ class chronograf (
   String $status_feed_url                   = 'https://www.influxdata.com/feed/json',
 
   # Resources
-  Optional[String] $bolt_path               = undef, #'/var/lib/chronogaf/chronogaf-v1.db', # './chronograf-v1.db',
+  Optional[String] $bolt_path               = undef,
   String $canned_path                       = '/usr/share/chronograf/canned',
   String $resources_path                    = '/usr/share/chronograf/resources',
   Optional[Hash] $influxdb_instances        = {},

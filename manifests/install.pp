@@ -1,6 +1,6 @@
 # Installs the chronograf package and any related dependencies
 #
-# @summary A short summary of the purpose of this class
+# @summary Class for installing the chronograf package
 #
 # @example
 #   include chronograf::install
