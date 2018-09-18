@@ -1,15 +1,15 @@
 
-# chronograf
+# puppet-chronograf
 
 #### Table of Contents
 
 1. [Description](#description)
-2. [Setup - The basics of getting started with chronograf](#setup)
+2. [Setup - The basics of getting started with puppet-chronograf](#setup)
     * [What chronograf affects](#what-chronograf-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with chronograf](#beginning-with-chronograf)
 3. [Usage - Configuration options and additional functionality](#usage)
-4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+4. [Reference](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
 
@@ -55,6 +55,6 @@ This module was developed for usage with RHEL/CentOS. It currently is only set t
 
 While the actual Chronograf configuration can support up quite a few Authentication methods, the only ones currently supported by this module are Github and Google. The rest will be added at a later point.
 
-## Release Notes/Contributors/Etc. **Optional**
+## Release Notes/Contributors/Etc.
 
 See [CHANGELOG.md](CHANGELOG.md) for the changelog.
