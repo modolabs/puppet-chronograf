@@ -4,7 +4,7 @@
 #
 # === Authors
 #
-# Adam Olgin <adam.olgin@modolabs.com>
+# Modo Labs, Inc.
 #
 # === Copyright
 #

@@ -1,7 +1,7 @@
 {
-  "name": "modolabs-chronograf",
+  "name": "puppet-chronograf",
   "version": "0.1.0",
-  "author": "Adam Olgin",
+  "author": "Modo Labs, Inc.",
   "summary": "A module for managing and configuring InfluxDBs Chronograf service",
   "license": "proprietary",
   "source": "https://github.com/modolabs/puppet-chronograf",
