@@ -14,7 +14,7 @@ describe 'chronograf::resource::organization' do
         {
           dir_path: '/usr/share/chronograf/resources',
           org_id: title.to_s,
-          org_name: 'Example Organizaton',
+          org_name: 'Example Organization',
           default_role: 'viewer',
         }
       end
@@ -36,7 +36,7 @@ describe 'chronograf::resource::organization' do
               'group'   => 'root',
               'mode'    => '0644',
               'ensure'  => 'present',
-              'content' => "{\n  \"id\": \"#{title}\",\n  \"name\": \"Example Organizaton\",\n  \"defaultRole\": \"viewer\"\n}\n",
+              'content' => "{\n  \"id\": \"#{title}\",\n  \"name\": \"Example Organization\",\n  \"defaultRole\": \"viewer\"\n}\n",
             ).that_notifies(['Class[chronograf::service]'])
           end
         end
