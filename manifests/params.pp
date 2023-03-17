@@ -15,6 +15,7 @@ class chronograf::params {
       $service_restart = "service ${service_name} restart"
       $pid_file        = '/var/run/chronograf/chronograf.pid'
       $log_level       = 'info'
+      $manage_repo     = true
     }
     default: {
       fail( "Unsupported platform: ${::osfamily}" )

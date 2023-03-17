@@ -70,7 +70,9 @@ class chronograf (
   String $service_restart                   = $chronograf::params::service_restart,
 
 ) inherits chronograf::params {
-  require chronograf::repo
+  if $manage_repo {
+    require chronograf::repo
+  }
   include chronograf::install
   include chronograf::config
 
