@@ -12,7 +12,7 @@ class chronograf::repo {
             baseurl  => 'https://repos.influxdata.com/rhel/$releasever/$basearch/stable',
             enabled  => 1,
             gpgcheck => 1,
-            gpgkey   => 'https://repos.influxdata.com/influxdb.key',
+            gpgkey   => 'https://repos.influxdata.com/influxdata-archive_compat.key',
         }
     }
 
